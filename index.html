@@ -49,7 +49,25 @@
             <div class="model-card">
                 <span class="new-badge">New</span>
                 <div class="model-image">
-                    <img src="/images/optimized/s8.jpg" alt="ZUUMAV S8" loading="lazy" width="600" height="400">
+                    <picture>
+                        <source
+                            type="image/webp"
+                            srcset="/images/optimized/s8-sm.webp 320w,
+                                    /images/optimized/s8-md.webp 640w,
+                                    /images/optimized/s8-lg.webp 960w"
+                            sizes="(max-width: 768px) 100vw, 600px">
+                        <source
+                            type="image/jpeg"
+                            srcset="/images/optimized/s8-sm.jpg 320w,
+                                    /images/optimized/s8-md.jpg 640w,
+                                    /images/optimized/s8-lg.jpg 960w"
+                            sizes="(max-width: 768px) 100vw, 600px">
+                        <img src="/images/optimized/s8-md.jpg" 
+                             alt="ZUUMAV S8" 
+                             loading="lazy" 
+                             width="640" 
+                             height="427">
+                    </picture>
                 </div>
                 <div class="model-info">
                     <h3>ZUUMAV S8</h3>
@@ -66,7 +84,25 @@
             <!-- K7 Model -->
             <div class="model-card">
                 <div class="model-image">
-                    <img src="/images/optimized/k7.jpg" alt="ZUUMAV K7" loading="lazy" width="600" height="400">
+                    <picture>
+                        <source
+                            type="image/webp"
+                            srcset="/images/optimized/k7-sm.webp 320w,
+                                    /images/optimized/k7-md.webp 640w,
+                                    /images/optimized/k7-lg.webp 960w"
+                            sizes="(max-width: 768px) 100vw, 600px">
+                        <source
+                            type="image/jpeg"
+                            srcset="/images/optimized/k7-sm.jpg 320w,
+                                    /images/optimized/k7-md.jpg 640w,
+                                    /images/optimized/k7-lg.jpg 960w"
+                            sizes="(max-width: 768px) 100vw, 600px">
+                        <img src="/images/optimized/k7-md.jpg" 
+                             alt="ZUUMAV K7" 
+                             loading="lazy" 
+                             width="640" 
+                             height="427">
+                    </picture>
                 </div>
                 <div class="model-info">
                     <h3>ZUUMAV K7</h3>
