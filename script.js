@@ -1,5 +1,20 @@
 // Performance optimized JavaScript with smooth animations
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize animations
+    initializeAnimations();
+    
+    // Mobile menu functionality
+    initializeMobileMenu();
+    
+    // Smooth scrolling
+    initializeSmoothScroll();
+    
+    // Form handling
+    initializeForm();
+    
+    // Loading animation
+    handleLoading();
+
     // Cache DOM elements
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
@@ -9,100 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         contact: document.querySelector('.contact-form'),
         newsletter: document.querySelector('.newsletter-form')
     };
-
-    // Mobile Menu
-    burger?.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.classList.toggle('active');
-        body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (nav?.classList.contains('active') && 
-            !nav.contains(e.target) && 
-            !burger.contains(e.target)) {
-            nav.classList.remove('active');
-            burger.classList.remove('active');
-            body.style.overflow = '';
-        }
-    });
-
-    // Handle navigation links on mobile
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            burger.classList.remove('active');
-            body.style.overflow = '';
-        });
-    });
-
-    // Smooth scroll with offset for header
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Form handling with better mobile UX
-    const handleForm = (form, successMessage) => {
-        if (!form) return;
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const submitBtn = form.querySelector('button[type="submit"]');
-            
-            if (submitBtn) {
-                // Disable button and show loading state
-                submitBtn.disabled = true;
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-                try {
-                    // Simulate form submission (replace with actual API call)
-                    await new Promise(resolve => setTimeout(resolve, 1500));
-                    
-                    // Show success message
-                    const successMessage = document.createElement('div');
-                    successMessage.className = 'success-message';
-                    successMessage.innerHTML = `
-                        <i class="fas fa-check-circle"></i>
-                        <p>${successMessage}</p>
-                    `;
-                    form.replaceWith(successMessage);
-
-                } catch (error) {
-                    console.error('Form submission error:', error);
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                    
-                    // Show error message
-                    const errorMessage = document.createElement('div');
-                    errorMessage.className = 'error-message';
-                    errorMessage.textContent = 'Something went wrong. Please try again.';
-                    form.insertBefore(errorMessage, submitBtn);
-                    
-                    // Remove error message after 3 seconds
-                    setTimeout(() => errorMessage.remove(), 3000);
-                }
-            }
-        });
-    };
-
-    // Initialize form handlers
-    handleForm(forms.contact, 'Thank you! We will contact you soon.');
-    handleForm(forms.newsletter, 'Thanks for subscribing!');
 
     // Lazy loading images with IntersectionObserver
     if ('IntersectionObserver' in window) {
@@ -161,6 +82,134 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 50);
         });
     });
+});
+
+function initializeAnimations() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
+
+    // Add fade-in class to elements
+    document.querySelectorAll('.model-card, .feature-card').forEach(card => {
+        card.classList.add('fade-in');
+    });
+}
+
+function initializeMobileMenu() {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    burger?.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        burger.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            burger.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (nav?.classList.contains('active') && 
+            !nav.contains(e.target) && 
+            !burger?.contains(e.target)) {
+            nav.classList.remove('active');
+            burger?.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+}
+
+function initializeSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+function initializeForm() {
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        
+        try {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Simulate form submission
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Show success message
+            showMessage('Message sent successfully!', 'success');
+            form.reset();
+        } catch (error) {
+            showMessage('Error sending message. Please try again.', 'error');
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+        }
+    });
+}
+
+function showMessage(message, type) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${type}`;
+    messageDiv.textContent = message;
+    
+    const form = document.querySelector('.contact-form');
+    form.parentNode.insertBefore(messageDiv, form.nextSibling);
+    
+    setTimeout(() => {
+        messageDiv.remove();
+    }, 5000);
+}
+
+function handleLoading() {
+    const loading = document.querySelector('.loading');
+    if (loading) {
+        window.addEventListener('load', () => {
+            loading.style.opacity = '0';
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 500);
+        });
+    }
+}
+
+// Prevent zoom on input focus for iOS devices
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault();
 });
 
 // Active Navigation Link on Scroll
