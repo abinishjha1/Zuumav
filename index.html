@@ -49,25 +49,7 @@
             <div class="model-card">
                 <span class="new-badge">New</span>
                 <div class="model-image">
-                    <picture>
-                        <source
-                            type="image/webp"
-                            srcset="./images/optimized/s8-sm.webp 320w,
-                                    ./images/optimized/s8-md.webp 640w,
-                                    ./images/optimized/s8-lg.webp 960w"
-                            sizes="(max-width: 768px) 100vw, 600px">
-                        <source
-                            type="image/jpeg"
-                            srcset="./images/optimized/s8-sm.jpg 320w,
-                                    ./images/optimized/s8-md.jpg 640w,
-                                    ./images/optimized/s8-lg.jpg 960w"
-                            sizes="(max-width: 768px) 100vw, 600px">
-                        <img src="./images/optimized/s8-md.jpg" 
-                             alt="ZUUMAV S8" 
-                             loading="lazy" 
-                             width="640" 
-                             height="427">
-                    </picture>
+                    <img src="./images/optimized/s8.jpg" alt="ZUUMAV S8">
                 </div>
                 <div class="model-info">
                     <h3>ZUUMAV S8</h3>
@@ -76,8 +58,8 @@
                         <span>450cc</span>
                         <span>108kg</span>
                     </div>
-                    <div class="price">$12,999</div>
-                    <button class="button">Learn More</button>
+                    <div class="price">रु. 17,15,868/-</div>
+                    <button class="button" onclick="openModal('s8-modal')">Learn More</button>
                 </div>
             </div>
 
@@ -111,7 +93,7 @@
                         <span>350cc</span>
                         <span>102kg</span>
                     </div>
-                    <div class="price">$10,999</div>
+                    <div class="price">रू 14,51,868</div>
                     <button class="button">Learn More</button>
                 </div>
             </div>
@@ -128,7 +110,7 @@
                         <span>250cc</span>
                         <span>98kg</span>
                     </div>
-                    <div class="price">$8,999</div>
+                    <div class="price">रू 11,87,868</div>
                     <button class="button">Learn More</button>
                 </div>
             </div>
@@ -145,7 +127,7 @@
                         <span>125cc</span>
                         <span>92kg</span>
                     </div>
-                    <div class="price">$7,999</div>
+                    <div class="price">रू 10,55,868</div>
                     <button class="button">Learn More</button>
                 </div>
             </div>
@@ -237,6 +219,67 @@
             <p>&copy; 2024 ZUUMAV. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Add modals at the end of body -->
+    <div id="s8-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('s8-modal')">&times;</span>
+            <div class="modal-header">
+                <h2>ZUUMAV S8 Specifications</h2>
+                <div class="price">रु. 17,15,868/-</div>
+            </div>
+            <div class="modal-body">
+                <div class="bike-image">
+                    <img src="./images/optimized/s8-lg.jpg" alt="ZUUMAV S8">
+                </div>
+                <div class="specs-detailed">
+                    <div class="spec-group">
+                        <h3>Engine & Performance</h3>
+                        <ul>
+                            <li>Engine: 450cc Single Cylinder</li>
+                            <li>Power: 55 HP @ 9000 rpm</li>
+                            <li>Torque: 45 Nm @ 7000 rpm</li>
+                            <li>Transmission: 6-Speed</li>
+                            <li>Fuel System: Electronic Fuel Injection</li>
+                        </ul>
+                    </div>
+                    <div class="spec-group">
+                        <h3>Chassis & Suspension</h3>
+                        <ul>
+                            <li>Frame: Advanced Aluminum Twin-Spar</li>
+                            <li>Front Suspension: USD Forks, 300mm travel</li>
+                            <li>Rear Suspension: Pro-Link with gas-charged shock</li>
+                            <li>Weight: 108 kg</li>
+                        </ul>
+                    </div>
+                    <div class="spec-group">
+                        <h3>Features</h3>
+                        <ul>
+                            <li>Advanced Traction Control System</li>
+                            <li>Dual-Channel ABS</li>
+                            <li>LED Lighting System</li>
+                            <li>Digital Display with Bluetooth</li>
+                            <li>Multiple Riding Modes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bike-features">
+                    <h3>Key Highlights</h3>
+                    <p>The ZUUMAV S8 is our flagship professional racing dirt bike, engineered for maximum performance and control. Features include:</p>
+                    <ul>
+                        <li>Race-tuned suspension system</li>
+                        <li>Lightweight aluminum frame</li>
+                        <li>Competition-grade components</li>
+                        <li>Advanced rider assistance systems</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="button">Book Test Ride</button>
+                <button class="button secondary">Download Brochure</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
