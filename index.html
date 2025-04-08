@@ -94,7 +94,7 @@
                         <span>102kg</span>
                     </div>
                     <div class="price">Price 14,51,868</div>
-                    <button class="button">Learn More</button>
+                    <button class="button" onclick="openModal('k7-modal')">Learn More</button>
                 </div>
             </div>
 
@@ -111,7 +111,7 @@
                         <span>98kg</span>
                     </div>
                     <div class="price">Price 11,87,868</div>
-                    <button class="button">Learn More</button>
+                    <button class="button" onclick="openModal('s6-modal')">Learn More</button>
                 </div>
             </div>
 
@@ -128,7 +128,7 @@
                         <span>92kg</span>
                     </div>
                     <div class="price">Price 10,55,868</div>
-                    <button class="button">Learn More</button>
+                    <button class="button" onclick="openModal('h6-modal')">Learn More</button>
                 </div>
             </div>
         </div>
@@ -271,6 +271,189 @@
                         <li>Lightweight aluminum frame</li>
                         <li>Competition-grade components</li>
                         <li>Advanced rider assistance systems</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="button">Book Test Ride</button>
+                <button class="button secondary">Download Brochure</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- K7 Modal -->
+    <div id="k7-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('k7-modal')">&times;</span>
+            <div class="modal-header">
+                <h2>ZUUMAV K7 Specifications</h2>
+                <div class="price">रु. 14,51,868/-</div>
+            </div>
+            <div class="modal-body">
+                <div class="bike-image">
+                    <img src="./images/optimized/k7-lg.jpg" alt="ZUUMAV K7">
+                </div>
+                <div class="specs-detailed">
+                    <div class="spec-group">
+                        <h3>Engine & Performance</h3>
+                        <ul>
+                            <li>Engine: 350cc Single Cylinder</li>
+                            <li>Power: 45 HP @ 8500 rpm</li>
+                            <li>Torque: 38 Nm @ 6500 rpm</li>
+                            <li>Transmission: 6-Speed</li>
+                            <li>Fuel System: Electronic Fuel Injection</li>
+                        </ul>
+                    </div>
+                    <div class="spec-group">
+                        <h3>Chassis & Suspension</h3>
+                        <ul>
+                            <li>Frame: Lightweight Steel Twin-Spar</li>
+                            <li>Front Suspension: USD Forks, 280mm travel</li>
+                            <li>Rear Suspension: Pro-Link system</li>
+                            <li>Weight: 102 kg</li>
+                        </ul>
+                    </div>
+                    <div class="spec-group">
+                        <h3>Features</h3>
+                        <ul>
+                            <li>Race-tuned Suspension</li>
+                            <li>Advanced Braking System</li>
+                            <li>LED Lighting</li>
+                            <li>Digital Display</li>
+                            <li>Dual Riding Modes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bike-features">
+                    <h3>Key Highlights</h3>
+                    <p>The ZUUMAV K7 is our competition-ready motocross bike designed for serious riders. Features include:</p>
+                    <ul>
+                        <li>Competition-grade suspension</li>
+                        <li>Optimized power delivery</li>
+                        <li>Premium racing components</li>
+                        <li>Enhanced stability control</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="button">Book Test Ride</button>
+                <button class="button secondary">Download Brochure</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- S6 Modal -->
+    <div id="s6-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('s6-modal')">&times;</span>
+            <div class="modal-header">
+                <h2>ZUUMAV S6 Specifications</h2>
+                <div class="price">रु. 11,87,868/-</div>
+            </div>
+            <div class="modal-body">
+                <div class="bike-image">
+                    <img src="./images/optimized/s6-lg.jpg" alt="ZUUMAV S6">
+                </div>
+                <div class="specs-detailed">
+                    <div class="spec-group">
+                        <h3>Engine & Performance</h3>
+                        <ul>
+                            <li>Engine: 250cc Single Cylinder</li>
+                            <li>Power: 35 HP @ 8000 rpm</li>
+                            <li>Torque: 28 Nm @ 6000 rpm</li>
+                            <li>Transmission: 5-Speed</li>
+                            <li>Fuel System: Electronic Fuel Injection</li>
+                        </ul>
+                    </div>
+                    <div class="spec-group">
+                        <h3>Chassis & Suspension</h3>
+                        <ul>
+                            <li>Frame: Semi-Double Cradle</li>
+                            <li>Front Suspension: Telescopic Forks, 250mm travel</li>
+                            <li>Rear Suspension: Monoshock</li>
+                            <li>Weight: 98 kg</li>
+                        </ul>
+                    </div>
+                    <div class="spec-group">
+                        <h3>Features</h3>
+                        <ul>
+                            <li>Adjustable Suspension</li>
+                            <li>Disc Brakes</li>
+                            <li>LED Indicators</li>
+                            <li>Digital Console</li>
+                            <li>Beginner-Friendly Mode</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bike-features">
+                    <h3>Key Highlights</h3>
+                    <p>The ZUUMAV S6 is our versatile dirt bike perfect for both beginners and experienced riders. Features include:</p>
+                    <ul>
+                        <li>Balanced power delivery</li>
+                        <li>Easy handling characteristics</li>
+                        <li>Durable construction</li>
+                        <li>Versatile performance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="button">Book Test Ride</button>
+                <button class="button secondary">Download Brochure</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- H6 Modal -->
+    <div id="h6-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('h6-modal')">&times;</span>
+            <div class="modal-header">
+                <h2>ZUUMAV H6 Specifications</h2>
+                <div class="price">रु. 10,55,868/-</div>
+            </div>
+            <div class="modal-body">
+                <div class="bike-image">
+                    <img src="./images/optimized/h6-lg.jpg" alt="ZUUMAV H6">
+                </div>
+                <div class="specs-detailed">
+                    <div class="spec-group">
+                        <h3>Engine & Performance</h3>
+                        <ul>
+                            <li>Engine: 125cc Single Cylinder</li>
+                            <li>Power: 25 HP @ 7500 rpm</li>
+                            <li>Torque: 20 Nm @ 5500 rpm</li>
+                            <li>Transmission: 5-Speed</li>
+                            <li>Fuel System: Carburetor</li>
+                        </ul>
+                    </div>
+                    <div class="spec-group">
+                        <h3>Chassis & Suspension</h3>
+                        <ul>
+                            <li>Frame: Diamond Type</li>
+                            <li>Front Suspension: Telescopic Forks, 220mm travel</li>
+                            <li>Rear Suspension: Monoshock</li>
+                            <li>Weight: 92 kg</li>
+                        </ul>
+                    </div>
+                    <div class="spec-group">
+                        <h3>Features</h3>
+                        <ul>
+                            <li>Basic Suspension Setup</li>
+                            <li>Reliable Braking System</li>
+                            <li>Standard Lighting</li>
+                            <li>Analog-Digital Console</li>
+                            <li>Training Mode</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bike-features">
+                    <h3>Key Highlights</h3>
+                    <p>The ZUUMAV H6 is our entry-level racing bike perfect for beginners. Features include:</p>
+                    <ul>
+                        <li>Easy to maintain</li>
+                        <li>Lightweight design</li>
+                        <li>Reliable performance</li>
+                        <li>Beginner-friendly controls</li>
                     </ul>
                 </div>
             </div>
