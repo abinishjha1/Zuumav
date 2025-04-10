@@ -180,18 +180,24 @@
             <h2>Get in Touch</h2>
             <p>Ready to experience the power of ZUUMAV?</p>
         </div>
-        <form class="contact-form animate-on-scroll">
-            <div class="form-row">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-            </div>
-            <input type="text" name="subject" placeholder="Subject" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="button">
-                <i class="fas fa-paper-plane"></i>
-                Send Message
-            </button>
-        </form>
+        <div class="contact-form">
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" required placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="button">Send Message</button>
+                <div id="formStatus" class="form-status"></div>
+            </form>
+        </div>
     </section>
 
     <!-- Footer -->

@@ -217,28 +217,54 @@ function initializeForm() {
     const form = document.querySelector('.contact-form');
     if (!form) return;
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
+    form.addEventListener('submit', handleSubmit);
+}
+
+// Form submission handling
+async function handleSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const formStatus = document.getElementById('formStatus');
+    
+    // Disable submit button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    formStatus.textContent = '';
+    
+    try {
+        const formData = {
+            name: form.name.value,
+            email: form.email.value,
+            subject: form.subject.value,
+            message: form.message.value
+        };
         
-        try {
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            
-            // Simulate form submission
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Show success message
-            showMessage('Message sent successfully!', 'success');
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            formStatus.textContent = 'Message sent successfully! We will get back to you soon.';
+            formStatus.className = 'form-status success';
             form.reset();
-        } catch (error) {
-            showMessage('Error sending message. Please try again.', 'error');
-        } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = originalText;
+        } else {
+            throw new Error(data.error || 'Failed to send message');
         }
-    });
+    } catch (error) {
+        formStatus.textContent = error.message || 'Failed to send message. Please try again.';
+        formStatus.className = 'form-status error';
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+    }
 }
 
 function showMessage(message, type) {
