@@ -250,6 +250,12 @@ async function handleSubmit(event) {
         });
         
         const data = await response.json();
+        if (response.headers.get('Content-Type') !== 'application/json') {
+            formStatus.textContent = 'Server returned an unexpected response. Please check the server logs.';
+            formStatus.className = 'form-status error';
+            return;
+        }
+
         
         if (response.ok) {
             formStatus.textContent = 'Message sent successfully! We will get back to you soon.';
